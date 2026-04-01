@@ -1,10 +1,12 @@
-"use client";
+﻿"use client";
 
+import { useState } from "react";
 import { motion, type Variants } from "framer-motion";
 import { ArrowRight, PhoneCall, Calendar, MessageSquare } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { useLanguage } from "@/context/LanguageContext";
 import { t } from "@/lib/translations";
+import { FormModal } from "./FormModal";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -15,11 +17,10 @@ const fadeUp: Variants = {
   }),
 };
 
-const DEMO_MAILTO = "mailto:optimum.for.all@gmail.com?subject=Solicito%20demo%20de%20Optimum%20for%20All";
-
 export default function Hero() {
   const { lang } = useLanguage();
   const tr = t[lang].hero;
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
@@ -30,7 +31,7 @@ export default function Hero() {
 
       <div className="max-w-6xl mx-auto px-6 py-20 lg:py-28 w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left — copy */}
+          {/* Left - copy */}
           <div>
             <motion.h1 initial="hidden" animate="visible" custom={0.1} variants={fadeUp}
               className="font-heading font-bold text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.12] text-[#1D3461] mb-6">
@@ -51,11 +52,12 @@ export default function Hero() {
 
             <motion.div initial="hidden" animate="visible" custom={0.35} variants={fadeUp}
               className="flex flex-col sm:flex-row gap-3">
-              <a href={DEMO_MAILTO}
+              <button
+                onClick={() => setIsModalOpen(true)}
                 className="group inline-flex items-center gap-2 bg-[#1D3461] hover:bg-[#1D3461]/90 text-white font-semibold px-7 h-12 rounded-xl text-base transition-colors">
                 {tr.cta}
                 <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
-              </a>
+              </button>
               <a href="#como-funciona"
                 className="inline-flex items-center justify-center text-[#1D3461] hover:bg-[#F2F0EC] font-semibold h-12 px-6 rounded-xl text-base transition-colors">
                 {tr.ctaSecondary}
@@ -68,7 +70,7 @@ export default function Hero() {
             </motion.p>
           </div>
 
-          {/* Right — visual */}
+          {/* Right - visual */}
           <motion.div
             initial={{ opacity: 0, x: 32 }}
             animate={{ opacity: 1, x: 0 }}
@@ -135,6 +137,8 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
+
+      <FormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 }
