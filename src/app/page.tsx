@@ -1,4 +1,3 @@
-import { LanguageProvider } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import PorQueOFA from "@/components/PorQueOFA";
@@ -11,7 +10,6 @@ import ChatWidget from "@/components/ChatWidget";
 
 export default function Home() {
   return (
-    <LanguageProvider>
     <>
       <a
         href="#main-content"
@@ -31,6 +29,5 @@ export default function Home() {
       <Footer />
       <ChatWidget />
     </>
-    </LanguageProvider>
   );
 }

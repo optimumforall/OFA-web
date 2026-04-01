@@ -1,4 +1,5 @@
-﻿import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+import nodemailer from "nodemailer";
 
 export async function POST(request: NextRequest) {
   try {
@@ -12,7 +13,43 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    console.log("New contact form submission:", { name, email, phone, message });
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+      console.warn("Faltan credenciales de Nodemailer. Simulando envío:", { name, email, phone, message });
+      return NextResponse.json(
+        { success: true, message: "(Simulado) Form submitted successfully" },
+        { status: 200 }
+      );
+    }
+
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
+    const mailOptions = {
+      from: `"Optimum for All" <${process.env.EMAIL_USER}>`,
+      to: "optimum.for.all@gmail.com",
+      replyTo: email,
+      subject: `Nuevo contacto de Demo: ${name}`,
+      text: `Has recibido una nueva solicitud de contacto.\n\nNombre: ${name}\nEmail: ${email}\nTeléfono: ${phone || "No indicado"}\n\nMensaje:\n${message || "Sin mensaje"}`,
+      html: `
+        <div style="font-family: sans-serif; max-width: 600px; margin: auto;">
+          <h2>Nueva solicitud de Demo / Contacto</h2>
+          <p><strong>Nombre:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Teléfono:</strong> ${phone || "No indicado"}</p>
+          <br/>
+          <p><strong>Mensaje:</strong></p>
+          <p style="white-space: pre-wrap; background: #f4f4f4; padding: 12px; border-radius: 6px;">${message || "Sin mensaje"}</p>
+        </div>
+      `,
+    };
+
+    await transporter.sendMail(mailOptions);
+    console.log("Email sent successfully para:", email);
 
     return NextResponse.json(
       { success: true, message: "Form submitted successfully" },
@@ -26,3 +63,4 @@ export async function POST(request: NextRequest) {
     );
   }
 }
+

@@ -3,10 +3,12 @@
 import { motion } from "framer-motion";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useLanguage } from "@/context/LanguageContext";
+import { useModal } from "@/context/ModalContext";
 import { t } from "@/lib/translations";
 
 export default function FAQ() {
   const { lang } = useLanguage();
+  const { openModal } = useModal();
   const tr = t[lang].faq;
 
   return (
@@ -20,10 +22,10 @@ export default function FAQ() {
               {tr.h2a}<br />{tr.h2b}<br />{tr.h2c}
             </h2>
             <p className="text-[#6B6560] leading-relaxed mb-6">{tr.body}</p>
-            <a href="mailto:optimum.for.all@gmail.com"
+            <button onClick={openModal}
               className="inline-flex items-center gap-2 text-sm font-semibold text-[#D4793B] hover:text-[#D4793B]/80 transition-colors">
               optimum.for.all@gmail.com →
-            </a>
+            </button>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}

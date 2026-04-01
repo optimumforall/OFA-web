@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ClipboardList, Mic, CalendarCheck } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { useModal } from "@/context/ModalContext";
 import { t } from "@/lib/translations";
 
 const icons = [ClipboardList, Mic, CalendarCheck];
@@ -10,6 +11,7 @@ const numbers = ["01", "02", "03"];
 
 export default function ComoFunciona() {
   const { lang } = useLanguage();
+  const { openModal } = useModal();
   const tr = t[lang].como;
 
   return (
@@ -53,10 +55,10 @@ export default function ComoFunciona() {
             <p className="font-heading font-bold text-xl text-[#1D3461] mb-1">{tr.stripTitle}</p>
             <p className="text-[#6B6560]">{tr.stripBody}</p>
           </div>
-          <a href="mailto:optimum.for.all@gmail.com?subject=Solicito%20demo%20de%20Optimum%20for%20All"
+          <button onClick={openModal}
             className="flex-shrink-0 bg-[#1D3461] hover:bg-[#1D3461]/90 text-white font-semibold px-7 py-3 rounded-xl transition-colors text-base whitespace-nowrap">
             {tr.stripCta}
-          </a>
+          </button>
         </motion.div>
       </div>
     </section>

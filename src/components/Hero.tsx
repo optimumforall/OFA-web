@@ -1,12 +1,12 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import { motion, type Variants } from "framer-motion";
 import { ArrowRight, PhoneCall, Calendar, MessageSquare } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { useLanguage } from "@/context/LanguageContext";
+import { useModal } from "@/context/ModalContext";
 import { t } from "@/lib/translations";
-import { FormModal } from "./FormModal";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -20,7 +20,7 @@ const fadeUp: Variants = {
 export default function Hero() {
   const { lang } = useLanguage();
   const tr = t[lang].hero;
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { openModal } = useModal();
 
   return (
     <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
@@ -53,7 +53,7 @@ export default function Hero() {
             <motion.div initial="hidden" animate="visible" custom={0.35} variants={fadeUp}
               className="flex flex-col sm:flex-row gap-3">
               <button
-                onClick={() => setIsModalOpen(true)}
+                onClick={openModal}
                 className="group inline-flex items-center gap-2 bg-[#1D3461] hover:bg-[#1D3461]/90 text-white font-semibold px-7 h-12 rounded-xl text-base transition-colors">
                 {tr.cta}
                 <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
@@ -137,8 +137,6 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
-
-      <FormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 }

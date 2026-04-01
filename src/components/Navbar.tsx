@@ -5,11 +5,13 @@ import { Menu, X, Phone } from "lucide-react";
 import Image from "next/image";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 import { useLanguage } from "@/context/LanguageContext";
+import { useModal } from "@/context/ModalContext";
 import { t } from "@/lib/translations";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const { lang } = useLanguage();
+  const { openModal } = useModal();
   const tr = t[lang].nav;
 
   useEffect(() => {
@@ -56,9 +58,9 @@ export default function Navbar() {
             <Phone size={14} />
             {tr.contact}
           </a>
-          <a href="mailto:optimum.for.all@gmail.com?subject=Solicito%20demo%20de%20Optimum%20for%20All" className="inline-flex items-center justify-center bg-[#1D3461] hover:bg-[#1D3461]/90 text-white font-semibold text-sm px-5 h-9 rounded-lg transition-colors">
+          <button onClick={openModal} className="inline-flex items-center justify-center bg-[#1D3461] hover:bg-[#1D3461]/90 text-white font-semibold text-sm px-5 h-9 rounded-lg transition-colors">
             {tr.cta}
-          </a>
+          </button>
         </div>
 
         <Sheet>
@@ -88,9 +90,9 @@ export default function Navbar() {
                 ))}
               </ul>
               <div className="mt-auto pb-6">
-                <a href="mailto:optimum.for.all@gmail.com?subject=Solicito%20demo%20de%20Optimum%20for%20All" className="flex items-center justify-center w-full bg-[#1D3461] hover:bg-[#1D3461]/90 text-white font-semibold py-2.5 rounded-lg transition-colors">
+                <button onClick={openModal} className="flex items-center justify-center w-full bg-[#1D3461] hover:bg-[#1D3461]/90 text-white font-semibold py-2.5 rounded-lg transition-colors">
                   {tr.cta}
-                </a>
+                </button>
               </div>
             </div>
           </SheetContent>

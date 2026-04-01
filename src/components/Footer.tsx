@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
+import { useModal } from "@/context/ModalContext";
 import { t } from "@/lib/translations";
 
 function LinktreeIcon({ size = 16 }: { size?: number }) {
@@ -31,6 +32,7 @@ function InstagramIcon({ size = 16 }: { size?: number }) {
 
 export default function Footer() {
   const { lang, setLang } = useLanguage();
+  const { openModal } = useModal();
   const tr = t[lang];
 
   return (
@@ -60,10 +62,10 @@ export default function Footer() {
 
           <div>
             <p className="text-white/30 text-xs uppercase tracking-widest font-semibold mb-4">{tr.footer.contact}</p>
-            <a href="mailto:optimum.for.all@gmail.com"
-              className="text-white/60 hover:text-white text-sm transition-colors block mb-4">
+            <button onClick={openModal}
+              className="text-white/60 hover:text-white text-sm transition-colors block mb-4 text-left">
               optimum.for.all@gmail.com
-            </a>
+            </button>
             <div className="flex items-center gap-3">
               <a href="https://instagram.com/optimum.for.all" target="_blank" rel="noopener noreferrer"
                 aria-label="Instagram de Optimum for All"

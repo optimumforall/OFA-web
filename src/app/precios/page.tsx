@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Mail } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
-import { LanguageProvider } from "@/context/LanguageContext";
+import { useModal } from "@/context/ModalContext";
 
 const WHATSAPP_URL =
   "https://wa.me/34625102259?text=Hola%2C%20quiero%20saber%20los%20precios%20de%20Optimum%20for%20All%20antes%20de%20que%20est%C3%A9n%20publicados.";
@@ -35,6 +35,7 @@ const content = {
 
 function PreciosContent() {
   const { lang } = useLanguage();
+  const { openModal } = useModal();
   const tr = content[lang];
 
   return (
@@ -102,13 +103,13 @@ function PreciosContent() {
                   <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
                 </a>
 
-                <a
-                  href="mailto:optimum.for.all@gmail.com?subject=Quiero%20saber%20los%20precios%20de%20Optimum%20for%20All"
+                <button
+                  onClick={openModal}
                   className="inline-flex items-center justify-center gap-2 text-[#1D3461] hover:bg-[#F2F0EC] border border-[#E2DED8] font-semibold h-13 px-6 rounded-xl text-base transition-colors"
                 >
                   <Mail size={16} />
                   {tr.cta2}
-                </a>
+                </button>
               </div>
 
               <p className="mt-5 text-sm text-[#6B6560]">{tr.note}</p>
@@ -128,9 +129,5 @@ function PreciosContent() {
 }
 
 export default function PreciosPage() {
-  return (
-    <LanguageProvider>
-      <PreciosContent />
-    </LanguageProvider>
-  );
+  return <PreciosContent />;
 }

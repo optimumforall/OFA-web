@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { TrendingUp, Clock, Phone } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { useModal } from "@/context/ModalContext";
 import { t } from "@/lib/translations";
 
 export default function Calculadora() {
@@ -11,6 +12,7 @@ export default function Calculadora() {
   const [minutos, setMinutos] = useState(2);
   const [tarifa, setTarifa] = useState(25);
   const { lang } = useLanguage();
+  const { openModal } = useModal();
   const tr = t[lang].calc;
 
   const horasSemanales = (llamadas * minutos * 6) / 60;
@@ -125,10 +127,10 @@ export default function Calculadora() {
               </div>
             </div>
 
-            <a href="mailto:optimum.for.all@gmail.com?subject=Solicito%20demo%20de%20Optimum%20for%20All"
+            <button onClick={openModal}
               className="mt-5 flex items-center justify-center w-full bg-[#D4793B] hover:bg-[#D4793B]/90 text-white font-semibold py-3.5 rounded-xl transition-colors text-base">
               {tr.cta}
-            </a>
+            </button>
           </motion.div>
         </div>
       </div>

@@ -3,12 +3,12 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Mail } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { useModal } from "@/context/ModalContext";
 import { t } from "@/lib/translations";
-
-const DEMO_MAILTO = "mailto:optimum.for.all@gmail.com?subject=Solicito%20demo%20de%20Optimum%20for%20All";
 
 export default function CTAFinal() {
   const { lang } = useLanguage();
+  const { openModal } = useModal();
   const tr = t[lang].cta;
 
   return (
@@ -24,11 +24,11 @@ export default function CTAFinal() {
           <p className="text-white/60 text-xl leading-relaxed mb-10 max-w-2xl mx-auto">{tr.body}</p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <a href={DEMO_MAILTO}
+            <button onClick={openModal}
               className="group inline-flex items-center justify-center gap-2 bg-[#D4793B] hover:bg-[#D4793B]/90 text-white font-semibold px-8 h-12 rounded-xl text-base transition-colors">
               {tr.cta1}
               <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
-            </a>
+            </button>
             <a href="mailto:optimum.for.all@gmail.com"
               className="inline-flex items-center justify-center gap-2 text-white hover:bg-white/10 font-semibold h-12 px-6 rounded-xl text-base border border-white/20 transition-colors">
               <Mail size={16} />
