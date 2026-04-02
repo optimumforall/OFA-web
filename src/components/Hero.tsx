@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, type Variants } from "framer-motion";
 import { ArrowRight, PhoneCall, Calendar, MessageSquare } from "lucide-react";
+import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { useLanguage } from "@/context/LanguageContext";
 import { useModal } from "@/context/ModalContext";
@@ -23,13 +24,22 @@ export default function Hero() {
   const { openModal } = useModal();
 
   return (
-    <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#1D3461]/[0.03] rounded-full translate-x-1/3 -translate-y-1/4" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#D4793B]/[0.05] rounded-full -translate-x-1/3 translate-y-1/4" />
+    <section className="relative min-h-screen flex items-center pt-16 overflow-hidden bg-[#FAFAF8]">
+      {/* Background Image with Frosted Glass Effect */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <Image
+          src="/main_hero.png"
+          alt="Optimum for All"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover scale-105"
+        />
+        {/* The Magic Velo: semi-transparent wash + heavy blur */}
+        <div className="absolute inset-0 bg-[#FAFAF8]/90 backdrop-blur-2xl" />
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 py-20 lg:py-28 w-full">
+      <div className="max-w-6xl mx-auto px-6 py-20 lg:py-28 w-full relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left - copy */}
           <div>

@@ -45,7 +45,7 @@ export default function Navbar() {
           </span>
         </a>
 
-        <ul className="hidden xl:flex items-center gap-6" role="list">
+        <ul className="hidden 2xl:flex items-center gap-5" role="list">
           {tr.links.map((link) => (
             <li key={link.href}>
               <a href={link.href} className="text-sm font-medium text-[#6B6560] hover:text-[#1D3461] transition-colors duration-200">
@@ -55,7 +55,7 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden xl:flex items-center gap-3 shrink-0">
+        <div className="hidden md:flex items-center gap-3 shrink-0">
           <button onClick={toggleLargeText} aria-label="Agrandar texto" className="flex items-center justify-center w-8 h-8 rounded-md bg-[#F2F0EC] hover:bg-[#E2DED8] text-[#1D3461] font-bold transition-colors">
             aA
           </button>
@@ -77,7 +77,7 @@ export default function Navbar() {
         </div>
 
         <Sheet>
-          <SheetTrigger className="xl:hidden p-2 text-[#1D3461] hover:bg-[#F2F0EC] rounded-lg transition-colors" aria-label="Abrir menú">
+          <SheetTrigger className="2xl:hidden p-2 text-[#1D3461] hover:bg-[#F2F0EC] rounded-lg transition-colors" aria-label="Abrir menú">
             <Menu size={22} />
           </SheetTrigger>
           <SheetContent side="right" className="w-[280px] bg-[#FAFAF8]">
