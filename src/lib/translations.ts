@@ -13,7 +13,7 @@ export const t = {
     },
     hero: {
       badge: "Cataluña · Soporte en catalán y castellano",
-      h1a: "Tu negocio responde.",
+      h1a: "Optimum for All: Tu negocio responde 24/7 con IA.",
       h1b: "Aunque no estés.",
       p1: "Cuando estás con un cliente, suena el teléfono. Lo ignoras. Esa persona llama a tu competencia. Nuestro asistente lo coge por ti — las 24 horas, todos los días.",
       p2: "Sin apps que aprender, sin contratos complicados. Nosotros lo montamos todo. Tú abres el negocio por la mañana como siempre.",
@@ -147,7 +147,7 @@ export const t = {
     },
     hero: {
       badge: "Catalunya · Suport en català i castellà",
-      h1a: "El teu negoci respon.",
+      h1a: "Optimum for All: El teu negoci respon 24/7 amb IA.",
       h1b: "Encara que no hi siguis.",
       p1: "Quan ets amb un client, sona el telèfon. L'ignores. Aquella persona truca a la teva competència. El nostre assistent el recull per tu — les 24 hores, tots els dies.",
       p2: "Sense apps que aprendre, sense contractes complicats. Nosaltres ho muntem tot. Tu obres el negoci al matí com sempre.",

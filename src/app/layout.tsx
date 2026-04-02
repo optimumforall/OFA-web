@@ -19,9 +19,9 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Optimum for All — Tu negocio responde. Aunque no estés.",
+  title: "Optimum for All – Asistente de voz IA para tu negocio | optimumforall.es",
   description:
-    "Asistentes de voz con IA que atienden llamadas 24/7, agendan citas y gestionan consultas. Para autónomos y pequeñas empresas en Cataluña. Sin tecnicismos, con soporte real.",
+    "Optimum for All: asistentes de voz con IA que atienden llamadas 24/7, agendan citas y gestionan consultas. Para autónomos y pequeñas empresas en Cataluña. Sin tecnicismos, con soporte real.",
   keywords: [
     "asistente de voz IA",
     "automatización llamadas",
@@ -62,6 +62,28 @@ export default function RootLayout({
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-6BN3K2RVMC');
+          `}
+        </Script>
+        <Script id="schema-org" strategy="afterInteractive">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Optimum for All",
+              "url": "https://optimumforall.es",
+              "logo": "https://optimumforall.es/logo.png",
+              "description": "Optimum for All: asistentes de voz con IA para pequeños negocios",
+              "sameAs": [
+                "https://www.instagram.com/optimum.for.all",
+                "https://www.linkedin.com/company/optimum-for-all"
+              ],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "Customer Support",
+                "telephone": "+34-625-102-259",
+                "email": "optimum.for.all@gmail.com"
+              }
+            }
           `}
         </Script>
       </head>
