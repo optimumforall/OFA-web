@@ -155,6 +155,21 @@ export const t = {
           "Toma de ubicación exacta automatizada"
         ]
       }
+    },
+    chat: {
+      botGreeting: "Hola. ¿En qué puedo ayudarte? Pulsa una pregunta o escríbeme directamente.",
+      companyName: "Optimum for All",
+      status: "Respondemos en minutos",
+      placeholder: "Escribe tu pregunta...",
+      fallback: "No tengo esa respuesta aquí, pero te la damos enseguida. Escríbenos por WhatsApp o reserva una demo gratuita.",
+      whatsappBtn: "Hablar por WhatsApp con una persona real",
+      quickReplies: [
+        { label: "¿Qué es Optimum for All?", answer: "Somos una startup catalana que crea asistentes de voz con inteligencia artificial para pequeños negocios. Tu asistente atiende llamadas, agenda citas y resuelve dudas — las 24 horas, los 7 días. Tú no tienes que estar pendiente del teléfono." },
+        { label: "¿Cuánto cuesta?", answer: "Los precios están en la sección de precios del menú. Si prefieres que te los expliquemos según tu tipo de negocio, lo hacemos en la demo — sin compromiso." },
+        { label: "¿Cuánto tarda la configuración?", answer: "48 horas. Hacemos una llamada contigo para entender tu negocio y configuramos todo nosotros. No tienes que instalar nada ni tocar nada." },
+        { label: "¿Puedo probar gratis?", answer: "Sí. Puedes reservar una demo gratuita de 20 minutos donde te enseñamos cómo quedaría el asistente en tu negocio concreto. Sin ningún compromiso." },
+        { label: "¿Funciona en catalán?", answer: "Sí. Nuestro asistente habla en catalán, castellano o el idioma que necesites. Lo configuramos nosotros." },
+      ]
     }
   },
 
@@ -314,6 +329,21 @@ export const t = {
           "Recollida d'ubicació exacta automatitzada"
         ]
       }
+    },
+    chat: {
+      botGreeting: "Hola. En què puc ajudar-te? Prem una pregunta o escriume directament.",
+      companyName: "Optimum for All",
+      status: "Responem en minuts",
+      placeholder: "Escriu la teva pregunta...",
+      fallback: "No tinc aquesta resposta aquí, però te la donem de seguida. Escriu-nos per WhatsApp o reserva una demo gratuïta.",
+      whatsappBtn: "Parlar per WhatsApp amb una persona real",
+      quickReplies: [
+        { label: "Què és Optimum for All?", answer: "Som una startup catalana que crea assistents de veu amb intel·ligència artificial per a petits negocis. El teu assistent atén trucades, agenda cites i resol dubtes — les 24 hores, els 7 dies. Tu no has d'estar pendent del telèfon." },
+        { label: "Quant costa?", answer: "Els preus estan a la secció de preus del menú. Si prefereixes que els expliquem segons el teu tipus de negoci, ho fem a la demo — sense compromís." },
+        { label: "Quant triga la configuració?", answer: "48 hores. Fem una trucada amb tu per entendre el teu negoci i ho configurem tot nosaltres. No has d'instal·lar res ni tocar res." },
+        { label: "Puc provar gratis?", answer: "Sí. Pots reservar una demo gratuïta de 20 minuts on t'ensenyem com quedaria l'assistent al teu negoci concret. Sense cap compromís." },
+        { label: "Funciona en català?", answer: "Sí. El nostre assistent parla en català, castellà o l'idioma que necessitis. Ho configurem nosaltres." },
+      ]
     }
   },
 } as const;

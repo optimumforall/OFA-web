@@ -3,28 +3,25 @@
 import { useState, useRef, useEffect } from "react";
 import { MessageSquare, X, ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
+import { t } from "@/lib/translations";
 
 type Message = {
   from: "bot" | "user";
   text: string;
 };
 
-const quickReplies = [
-  { label: "¿Qué es Optimum for All?", answer: "Somos una startup catalana que crea asistentes de voz con inteligencia artificial para pequeños negocios. Tu asistente atiende llamadas, agenda citas y resuelve dudas — las 24 horas, los 7 días. Tú no tienes que estar pendiente del teléfono." },
-  { label: "¿Cuánto cuesta?", answer: "Los precios están en la sección de precios del menú. Si prefieres que te los expliquemos según tu tipo de negocio, lo hacemos en la demo — sin compromiso." },
-  { label: "¿Cuánto tarda la configuración?", answer: "48 horas. Hacemos una llamada contigo para entender tu negocio y configuramos todo nosotros. No tienes que instalar nada ni tocar nada." },
-  { label: "¿Puedo probar gratis?", answer: "Sí. Puedes reservar una demo gratuita de 20 minutos donde te enseñamos cómo quedaría el asistente en tu negocio concreto. Sin ningún compromiso." },
-  { label: "¿Funciona en catalán?", answer: "Sí. Nuestro asistente habla en catalán, castellano o el idioma que necesites. Lo configuramos nosotros." },
-];
-
 const WHATSAPP_URL = "https://wa.me/34625102259?text=Hola%2C%20me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20Optimum%20for%20All.";
 
 export default function ChatWidget() {
+  const { lang } = useLanguage();
+  const tr = t[lang].chat;
+  
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
       from: "bot",
-      text: "Hola. ¿En qué puedo ayudarte? Pulsa una pregunta o escríbeme directamente.",
+      text: tr.botGreeting,
     },
   ]);
   const [input, setInput] = useState("");
@@ -53,7 +50,7 @@ export default function ChatWidget() {
     }, 500);
   }
 
-  function handleQuickReply(item: typeof quickReplies[0]) {
+  function handleQuickReply(item: {label: string, answer: string}) {
     sendMessage(item.label, item.answer);
   }
 
@@ -62,12 +59,12 @@ export default function ChatWidget() {
     if (!text) return;
     setInput("");
     const lower = text.toLowerCase();
-    const match = quickReplies.find((q) =>
+    const match = tr.quickReplies.find((q) =>
       q.label.toLowerCase().split(" ").some((w) => w.length > 3 && lower.includes(w))
     );
     const answer = match
       ? match.answer
-      : "No tengo esa respuesta aquí, pero te la damos enseguida. Escríbenos por WhatsApp o reserva una demo gratuita.";
+      : tr.fallback;
     sendMessage(text, answer);
   }
 
@@ -94,9 +91,9 @@ export default function ChatWidget() {
                 <div className="w-2 h-2 bg-green-400 rounded-full" />
                 <div>
                   <p className="text-white font-semibold text-sm leading-tight">
-                    Optimum for All
+                    {tr.companyName}
                   </p>
-                  <p className="text-white/50 text-xs">Respondemos en minutos</p>
+                  <p className="text-white/50 text-xs">{tr.status}</p>
                 </div>
               </div>
               <button
@@ -130,7 +127,7 @@ export default function ChatWidget() {
               {/* Quick replies */}
               {showQuickReplies && (
                 <div className="space-y-1.5 pt-1">
-                  {quickReplies.map((item) => (
+                  {tr.quickReplies.map((item) => (
                     <button
                       key={item.label}
                       onClick={() => handleQuickReply(item)}
@@ -154,7 +151,7 @@ export default function ChatWidget() {
                 className="flex items-center gap-2 text-xs font-semibold text-[#25D366] hover:text-[#25D366]/80 transition-colors"
               >
                 <ExternalLink size={12} />
-                Hablar por WhatsApp con una persona real
+                {tr.whatsappBtn}
               </a>
             </div>
 
@@ -165,7 +162,7 @@ export default function ChatWidget() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKey}
-                placeholder="Escribe tu pregunta..."
+                placeholder={tr.placeholder}
                 className="flex-1 text-sm bg-[#F2F0EC] rounded-lg px-3 py-2 outline-none text-[#141414] placeholder:text-[#6B6560]"
                 aria-label="Mensaje"
               />
