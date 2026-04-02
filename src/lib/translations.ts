@@ -5,7 +5,9 @@ export const t = {
         { label: "Por qué OFA", href: "#por-que-ofa" },
         { label: "Calculadora", href: "#calculadora" },
         { label: "Cómo funciona", href: "#como-funciona" },
-        { label: "FAQ", href: "#faq" },
+        { label: "FAQ", href: "/#faq" },
+        { label: "Belleza", href: "/sectores/belleza" },
+        { label: "Oficios", href: "/sectores/oficios" },
         { label: "Precios", href: "/precios" },
       ],
       contact: "Contacto",
@@ -131,6 +133,28 @@ export const t = {
       contact: "Contacto",
       rights: `© ${new Date().getFullYear()} Optimum for All · Barcelona, Cataluña`,
     },
+    sectores: {
+      belleza: {
+        title: "Asistente Virtual IA para Peluquerías y Salones de Belleza en Garraf y Penedès",
+        subtitle: "No vuelvas a dejar a una clienta con el tinte a medias por contestar el teléfono.",
+        body: "Sabemos que en un salón de belleza el tiempo es oro. Nuestro asistente gestiona tus reservas mientras tú te enfocas en tus clientes. Ideal para captar clientes internacionales (expats) en la zona de Sitges, Vilanova, Cunit y Tarragona gracias a su soporte nativo en Inglés, además de Castellano y Catalán.",
+        features: [
+          "Sincroniza con tu Google Calendar o sistema de citas",
+          "Atiende simultáneamente a múltiples clientes sin esperas",
+          "Habla perfecto Inglés para atraer clientes extranjeros"
+        ]
+      },
+      oficios: {
+        title: "Recepción 24/7 para Electricistas, Fontaneros y Reformas",
+        subtitle: "Atiende a tus clientes mientras estás subido a la escalera o conduciendo la furgoneta.",
+        body: "Trabajando por el Garraf, Penedès y Tarragona no siempre puedes parar a coger el teléfono y acabas perdiendo avisos. Deja que la IA tome los datos del cliente, detecte si es una urgencia y te mande un resumen detallado.",
+        features: [
+          "Filtra averías urgentes de presupuestos estándar",
+          "No pierdes servicios mientras vas conduciendo",
+          "Capacidad de entender distintos acentos e idiomas"
+        ]
+      }
+    }
   },
 
   ca: {
@@ -139,7 +163,9 @@ export const t = {
         { label: "Per què OFA", href: "#por-que-ofa" },
         { label: "Calculadora", href: "#calculadora" },
         { label: "Com funciona", href: "#como-funciona" },
-        { label: "FAQ", href: "#faq" },
+        { label: "FAQ", href: "/#faq" },
+        { label: "Bellesa", href: "/sectores/belleza" },
+        { label: "Oficis", href: "/sectores/oficios" },
         { label: "Preus", href: "/precios" },
       ],
       contact: "Contacte",
@@ -265,6 +291,28 @@ export const t = {
       contact: "Contacte",
       rights: `© ${new Date().getFullYear()} Optimum for All · Barcelona, Catalunya`,
     },
+    sectores: {
+      belleza: {
+        title: "Assistent Virtual d'IA per a Perruqueries i Salons de Bellesa al Garraf i Penedès",
+        subtitle: "No tornis a deixar a una clienta amb el tint a mitges per contestar el telèfon.",
+        body: "Sabem que en un saló de bellesa el temps és or. El nostre assistent gestiona les teves reserves mentre tu t'enfoques en els clients. Ideal per captar clients internacionals (expats) a la zona de Sitges, Vilanova, Cunit i Tarragona gràcies al seu suport natiu en Anglès, a més de Català i Castellà.",
+        features: [
+          "Sincronitza amb el teu Google Calendar o sistema de cites",
+          "Atén simultàniament a múltiples clients sense esperes",
+          "Parla perfecte Anglès per atreure clients estrangers"
+        ]
+      },
+      oficios: {
+        title: "Recepció 24/7 per a Electricistes, Llauners i Reformes",
+        subtitle: "Atén als teus clients mentre estàs pujat a l'escala o conduint la furgoneta.",
+        body: "Treballant pel Garraf, Penedès i Tarragona no sempre pots parar a agafar el telèfon i acabes perdent avisos. Deixa que la IA agafi les dades del client, detecti si és una urgència i t'enviï un resum detallat.",
+        features: [
+          "Filtra avaries urgents de pressupostos estàndard",
+          "No perds serveis mentre vas conduint",
+          "Capacitat d'entendre diferents accents i idiomes"
+        ]
+      }
+    }
   },
 } as const;
 

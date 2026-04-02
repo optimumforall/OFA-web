@@ -5,6 +5,8 @@ import Calculadora from "@/components/Calculadora";
 import ComoFunciona from "@/components/ComoFunciona";
 import FAQ from "@/components/FAQ";
 import CTAFinal from "@/components/CTAFinal";
+import Script from "next/script";
+import { t } from "@/lib/translations";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
 
@@ -28,6 +30,20 @@ export default function Home() {
       </main>
       <Footer />
       <ChatWidget />
+      <Script id="faq-schema" type="application/ld+json" strategy="beforeInteractive">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": t.es.faq.items.map((item) => ({
+            "@type": "Question",
+            "name": item.q,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": item.a
+            }
+          }))
+        })}
+      </Script>
     </>
   );
 }
