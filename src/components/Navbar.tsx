@@ -1,17 +1,19 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, Globe } from "lucide-react";
 import Image from "next/image";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 import { useLanguage } from "@/context/LanguageContext";
 import { useModal } from "@/context/ModalContext";
+import { useAccessibility } from "@/context/AccessibilityContext";
 import { t } from "@/lib/translations";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const { lang } = useLanguage();
+  const { lang, setLang } = useLanguage();
   const { openModal } = useModal();
+  const { toggleLargeText } = useAccessibility();
   const tr = t[lang].nav;
 
   useEffect(() => {
@@ -53,8 +55,19 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden md:flex items-center gap-3">
-          <a href="mailto:optimum.for.all@gmail.com" className="text-sm font-medium text-[#6B6560] hover:text-[#1D3461] transition-colors flex items-center gap-1.5">
+        <div className="hidden md:flex items-center gap-2.5">
+          <button onClick={toggleLargeText} aria-label="Agrandar texto" className="flex items-center justify-center w-8 h-8 rounded-md bg-[#F2F0EC] hover:bg-[#E2DED8] text-[#1D3461] font-bold transition-colors">
+            aA
+          </button>
+          
+          <button onClick={() => setLang(lang === 'es' ? 'ca' : 'es')} aria-label="Cambiar idioma" className="flex items-center gap-1.5 px-2.5 h-8 rounded-md bg-[#F2F0EC] hover:bg-[#E2DED8] text-[#1D3461] text-[11px] font-bold transition-colors uppercase tracking-wider">
+            <Globe size={13} className="opacity-70" />
+            {lang === 'es' ? 'ES/CA' : 'CA/ES'}
+          </button>
+
+          <div className="w-px h-4 bg-[#E2DED8] mx-1"></div>
+
+          <a href="mailto:optimum.for.all@gmail.com" className="text-sm font-medium text-[#6B6560] hover:text-[#1D3461] transition-colors flex items-center gap-1.5 ml-1">
             <Phone size={14} />
             {tr.contact}
           </a>

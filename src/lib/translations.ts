@@ -134,6 +134,7 @@ export const t = {
       rights: `© ${new Date().getFullYear()} Optimum for All · Barcelona, Cataluña`,
     },
     sectores: {
+      showcase: "Concéntrate en lo importante. Nuestro asistente atiende las llamadas por ti.",
       belleza: {
         title: "Asistente Virtual IA para Peluquerías y Salones de Belleza en Garraf y Penedès",
         subtitle: "No vuelvas a dejar a una clienta con el tinte a medias por contestar el teléfono.",
@@ -145,13 +146,13 @@ export const t = {
         ]
       },
       oficios: {
-        title: "Recepción 24/7 para Electricistas, Fontaneros y Reformas",
-        subtitle: "Atiende a tus clientes mientras estás subido a la escalera o conduciendo la furgoneta.",
-        body: "Trabajando por el Garraf, Penedès y Tarragona no siempre puedes parar a coger el teléfono y acabas perdiendo avisos. Deja que la IA tome los datos del cliente, detecte si es una urgencia y te mande un resumen detallado.",
+        title: "Recepción 24/7 para Cerrajeros, Electricistas y Fontaneros",
+        subtitle: "Atiende urgencias y avisos sin soltar las herramientas ni parar la furgoneta.",
+        body: "Como cerrajero 24 horas o instalador por el Garraf, Penedès y Tarragona, una llamada perdida de madrugada es dinero perdido. La IA responde de inmediato, clasifica la urgencia y te envía los datos de la avería al móvil.",
         features: [
-          "Filtra averías urgentes de presupuestos estándar",
-          "No pierdes servicios mientras vas conduciendo",
-          "Capacidad de entender distintos acentos e idiomas"
+          "Filtra urgencias 24h vs. peticiones de presupuesto",
+          "Soporte multi-idioma nato para clientes extranjeros",
+          "Toma de ubicación exacta automatizada"
         ]
       }
     }
@@ -292,6 +293,7 @@ export const t = {
       rights: `© ${new Date().getFullYear()} Optimum for All · Barcelona, Catalunya`,
     },
     sectores: {
+      showcase: "Enfoca't en el més important. El nostre assistent atén les trucades per tu.",
       belleza: {
         title: "Assistent Virtual d'IA per a Perruqueries i Salons de Bellesa al Garraf i Penedès",
         subtitle: "No tornis a deixar a una clienta amb el tint a mitges per contestar el telèfon.",
@@ -303,13 +305,13 @@ export const t = {
         ]
       },
       oficios: {
-        title: "Recepció 24/7 per a Electricistes, Llauners i Reformes",
-        subtitle: "Atén als teus clients mentre estàs pujat a l'escala o conduint la furgoneta.",
-        body: "Treballant pel Garraf, Penedès i Tarragona no sempre pots parar a agafar el telèfon i acabes perdent avisos. Deixa que la IA agafi les dades del client, detecti si és una urgència i t'enviï un resum detallat.",
+        title: "Recepció 24/7 per a Serrallers, Lampistes i Electricistes",
+        subtitle: "Atén urgències i avisos sense deixar anar les eines ni aturar la furgoneta.",
+        body: "Com a serraller 24 hores o instal·lador pel Garraf, Penedès i Tarragona, una trucada perduda de matinada són diners perduts. La IA respon immediatament, classifica la urgència i t'envia les dades de l'avaria al mòbil.",
         features: [
-          "Filtra avaries urgents de pressupostos estàndard",
-          "No perds serveis mentre vas conduint",
-          "Capacitat d'entendre diferents accents i idiomes"
+          "Filtra urgències 24h vs. peticions de pressupost",
+          "Suport multi-idioma natiu per a clients estrangers",
+          "Recollida d'ubicació exacta automatitzada"
         ]
       }
     }
