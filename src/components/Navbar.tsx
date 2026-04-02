@@ -30,7 +30,7 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <nav className="max-w-[1440px] w-[95%] lg:w-full lg:px-8 mx-auto px-4 h-16 flex items-center justify-between" aria-label="Navegación principal">
+      <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between" aria-label="Navegación principal">
         <a href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity" aria-label="Optimum for All — Inicio">
           <Image
             src="/Logo.png"
@@ -40,12 +40,12 @@ export default function Navbar() {
             className="h-14 w-auto md:h-14 object-contain"
             priority
           />
-          <span className="font-heading font-bold text-xl text-[#1D3461] tracking-tight hidden sm:block">
+          <span className="font-heading font-bold text-xl text-[#1D3461] tracking-tight">
             Optimum<span className="text-[#D4793B]"> for All</span>
           </span>
         </a>
 
-        <ul className="hidden lg:flex items-center gap-4 xl:gap-8" role="list">
+        <ul className="hidden xl:flex items-center gap-6" role="list">
           {tr.links.map((link) => (
             <li key={link.href}>
               <a href={link.href} className="text-sm font-medium text-[#6B6560] hover:text-[#1D3461] transition-colors duration-200">
@@ -55,7 +55,7 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden lg:flex items-center gap-2.5">
+        <div className="hidden xl:flex items-center gap-3 shrink-0">
           <button onClick={toggleLargeText} aria-label="Agrandar texto" className="flex items-center justify-center w-8 h-8 rounded-md bg-[#F2F0EC] hover:bg-[#E2DED8] text-[#1D3461] font-bold transition-colors">
             aA
           </button>
@@ -77,7 +77,7 @@ export default function Navbar() {
         </div>
 
         <Sheet>
-          <SheetTrigger className="lg:hidden p-2 text-[#1D3461] hover:bg-[#F2F0EC] rounded-lg transition-colors" aria-label="Abrir menú">
+          <SheetTrigger className="xl:hidden p-2 text-[#1D3461] hover:bg-[#F2F0EC] rounded-lg transition-colors" aria-label="Abrir menú">
             <Menu size={22} />
           </SheetTrigger>
           <SheetContent side="right" className="w-[280px] bg-[#FAFAF8]">
