@@ -65,25 +65,51 @@ export default function RootLayout({
             gtag('config', 'G-6BN3K2RVMC');
           `}
         </Script>
-        <Script id="schema-org" strategy="afterInteractive">
+        <Script id="schema-org" type="application/ld+json" strategy="afterInteractive">
           {`
             {
               "@context": "https://schema.org",
-              "@type": "Organization",
+              "@type": "ProfessionalService",
               "name": "Optimum for All",
               "url": "https://optimumforall.es",
               "logo": "https://optimumforall.es/logo.png",
-              "description": "Optimum for All: asistentes de voz con IA para pequeños negocios",
+              "image": "https://optimumforall.es/main_hero.png",
+              "description": "Servicio de asistentes de voz con Inteligencia Artificial para atención telefónica 24/7 y gestión de citas de pequeños negocios en Cataluña.",
+              "telephone": "+34-625-102-259",
+              "email": "optimum.for.all@gmail.com",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Barcelona",
+                "addressRegion": "Catalunya",
+                "addressCountry": "ES"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 41.2239,
+                "longitude": 1.7251
+              },
+              "areaServed": [
+                {
+                  "@type": "GeoCircle",
+                  "geoMidpoint": {
+                    "@type": "GeoCoordinates",
+                    "latitude": 41.2239,
+                    "longitude": 1.7251
+                  },
+                  "geoRadius": "40000",
+                  "description": "Comarca del Garraf y Penedès"
+                },
+                "Vilanova i la Geltrú",
+                "Sitges",
+                "Cunit",
+                "Tarragona",
+                "Barcelona"
+              ],
+              "priceRange": "€€",
               "sameAs": [
                 "https://www.instagram.com/optimum.for.all",
                 "https://www.linkedin.com/company/optimum-for-all"
-              ],
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "contactType": "Customer Support",
-                "telephone": "+34-625-102-259",
-                "email": "optimum.for.all@gmail.com"
-              }
+              ]
             }
           `}
         </Script>
