@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, DM_Sans } from "next/font/google";
 import Script from "next/script";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { ClientProviders } from "@/components/ClientProviders";
 import "./globals.css";
 
@@ -93,6 +94,7 @@ export default function RootLayout({
         <ClientProviders>
           {children}
         </ClientProviders>
+        <SpeedInsights />
       </body>
     </html>
   );
