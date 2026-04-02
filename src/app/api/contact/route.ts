@@ -3,6 +3,9 @@ import nodemailer from "nodemailer";
 
 export async function POST(request: NextRequest) {
   try {
+    console.log("DEBUG: EMAIL_USER =", process.env.EMAIL_USER);
+    console.log("DEBUG: EMAIL_PASS =", process.env.EMAIL_PASS);
+
     const body = await request.json();
     const { name, email, phone, message } = body;
 
@@ -29,6 +32,19 @@ export async function POST(request: NextRequest) {
       },
     });
 
+    console.log("DEBUG: Transporter config:", {
+      service: 'gmail',
+      user: process.env.EMAIL_USER,
+      passLength: process.env.EMAIL_PASS?.length,
+    });
+
+    try {
+      const verified = await transporter.verify();
+      console.log('Transporter verified:', verified);
+    } catch (error) {
+      console.error('Transporter verification failed:', error);
+    }
+
     const mailOptions = {
       from: `"Optimum for All" <${process.env.EMAIL_USER}>`,
       to: "optimum.for.all@gmail.com",
@@ -48,8 +64,8 @@ export async function POST(request: NextRequest) {
       `,
     };
 
-    await transporter.sendMail(mailOptions);
-    console.log("Email sent successfully para:", email);
+    const info = await transporter.sendMail(mailOptions);
+    console.log("Email sent:", info);
 
     return NextResponse.json(
       { success: true, message: "Form submitted successfully" },
