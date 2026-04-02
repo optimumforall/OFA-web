@@ -55,7 +55,8 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden md:flex items-center gap-3 shrink-0">
+        <div className="flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-3 shrink-0">
           <button onClick={toggleLargeText} aria-label="Agrandar texto" className="flex items-center justify-center w-8 h-8 rounded-md bg-[#F2F0EC] hover:bg-[#E2DED8] text-[#1D3461] font-bold transition-colors">
             aA
           </button>
@@ -110,6 +111,7 @@ export default function Navbar() {
             </div>
           </SheetContent>
         </Sheet>
+        </div>
       </nav>
     </header>
   );
