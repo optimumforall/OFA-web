@@ -66,10 +66,8 @@ export default function Navbar() {
           {/* Menú Hamburguesa Solo Móvil */}
           <div className="block md:hidden ml-1">
             <Sheet>
-              <SheetTrigger asChild>
-                <button aria-label="Abrir menú" className="flex items-center justify-center w-9 h-9 rounded-md bg-[#F2F0EC] hover:bg-[#E2DED8] text-[#1D3461] transition-colors">
-                  <Menu size={20} />
-                </button>
+              <SheetTrigger aria-label="Abrir menú" className="flex items-center justify-center w-9 h-9 rounded-md bg-[#F2F0EC] hover:bg-[#E2DED8] text-[#1D3461] transition-colors">
+                <Menu size={20} />
               </SheetTrigger>
               <SheetContent side="right" className="bg-[#FAFAF8] border-[#E2DED8] flex flex-col pt-12">
                 <SheetTitle className="sr-only">Menú de Navegación</SheetTitle>
