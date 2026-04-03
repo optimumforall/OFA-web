@@ -133,7 +133,7 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="absolute -bottom-8 -left-8 md:-bottom-10 md:-left-12 bg-white rounded-xl border border-[#E2DED8] shadow-md px-4 py-3 z-20">
+            <div className="absolute -bottom-16 -left-8 md:-bottom-24 md:-left-16 bg-white rounded-xl border border-[#E2DED8] shadow-md px-4 py-3 z-20">
               <p className="text-xs text-[#6B6560] font-medium">{tr.stat1label}</p>
               <p className="text-2xl font-bold font-heading text-[#1D3461]">3–5</p>
               <p className="text-xs text-[#6B6560]">{tr.stat1sub}</p>
