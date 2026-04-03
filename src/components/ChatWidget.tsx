@@ -5,11 +5,7 @@ import { MessageSquare, X, ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { t } from "@/lib/translations";
-
-type Message = {
-  from: "bot" | "user";
-  text: string;
-};
+import { useChat, type Message } from "ai/react";
 
 const WHATSAPP_URL = "https://wa.me/34625102259?text=Hola%2C%20me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20Optimum%20for%20All.";
 
@@ -18,15 +14,25 @@ export default function ChatWidget() {
   const tr = t[lang].chat;
   
   const [open, setOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      from: "bot",
-      text: tr.botGreeting,
-    },
-  ]);
-  const [input, setInput] = useState("");
-  const [showQuickReplies, setShowQuickReplies] = useState(true);
   const bottomRef = useRef<HTMLDivElement>(null);
+
+  const { messages, input, handleInputChange, handleSubmit, append } = useChat({
+    initialMessages: [
+      {
+        id: 'initial',
+        role: 'assistant',
+        content: tr.botGreeting,
+      }
+    ]
+  });
+
+  const [showQuickReplies, setShowQuickReplies] = useState(true);
+
+  useEffect(() => {
+    if (messages.length > 1) {
+      setShowQuickReplies(false);
+    }
+  }, [messages]);
 
   useEffect(() => {
     if (open) {
@@ -36,40 +42,19 @@ export default function ChatWidget() {
     }
   }, [messages, open]);
 
-  function sendMessage(userText: string, botAnswer: string) {
-    setShowQuickReplies(false);
-    setMessages((prev) => [
-      ...prev,
-      { from: "user", text: userText },
-    ]);
-    setTimeout(() => {
-      setMessages((prev) => [
-        ...prev,
-        { from: "bot", text: botAnswer },
-      ]);
-    }, 500);
-  }
-
   function handleQuickReply(item: {label: string, answer: string}) {
-    sendMessage(item.label, item.answer);
-  }
-
-  function handleSend() {
-    const text = input.trim();
-    if (!text) return;
-    setInput("");
-    const lower = text.toLowerCase();
-    const match = tr.quickReplies.find((q) =>
-      q.label.toLowerCase().split(" ").some((w) => w.length > 3 && lower.includes(w))
-    );
-    const answer = match
-      ? match.answer
-      : tr.fallback;
-    sendMessage(text, answer);
+    append({
+      role: 'user',
+      content: item.label
+    });
   }
 
   function handleKey(e: React.KeyboardEvent<HTMLInputElement>) {
-    if (e.key === "Enter") handleSend();
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      const syntheticEvent = e as unknown as React.FormEvent<HTMLFormElement>;
+      handleSubmit(syntheticEvent);
+    }
   }
 
   return (
@@ -107,19 +92,19 @@ export default function ChatWidget() {
 
             {/* Messages */}
             <div className="h-60 overflow-y-auto px-4 py-4 space-y-3 bg-[#FAFAF8]">
-              {messages.map((msg, i) => (
+              {messages.map((msg: Message, i: number) => (
                 <div
                   key={i}
-                  className={`flex ${msg.from === "user" ? "justify-end" : "justify-start"}`}
+                  className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div
-                    className={`max-w-[240px] px-3.5 py-2.5 rounded-xl text-sm leading-snug ${
-                      msg.from === "bot"
+                    className={`max-w-[240px] px-3.5 py-2.5 rounded-xl text-sm leading-snug whitespace-pre-wrap ${
+                      msg.role !== "user"
                         ? "bg-white border border-[#E2DED8] text-[#141414] rounded-tl-none"
                         : "bg-[#1D3461] text-white rounded-tr-none"
                     }`}
                   >
-                    {msg.text}
+                    {msg.content}
                   </div>
                 </div>
               ))}
@@ -156,18 +141,18 @@ export default function ChatWidget() {
             </div>
 
             {/* Input */}
-            <div className="px-3 py-3 border-t border-[#E2DED8] flex items-center gap-2 bg-white">
+            <form onSubmit={handleSubmit} className="px-3 py-3 border-t border-[#E2DED8] flex items-center gap-2 bg-white">
               <input
                 type="text"
                 value={input}
-                onChange={(e) => setInput(e.target.value)}
+                onChange={handleInputChange}
                 onKeyDown={handleKey}
                 placeholder={tr.placeholder}
                 className="flex-1 text-sm bg-[#F2F0EC] rounded-lg px-3 py-2 outline-none text-[#141414] placeholder:text-[#6B6560]"
                 aria-label="Mensaje"
               />
               <button
-                onClick={handleSend}
+                type="submit"
                 disabled={!input.trim()}
                 className="w-9 h-9 bg-[#1D3461] hover:bg-[#1D3461]/90 disabled:opacity-40 rounded-lg flex items-center justify-center transition-colors flex-shrink-0"
                 aria-label="Enviar mensaje"
@@ -177,7 +162,7 @@ export default function ChatWidget() {
                   <polygon points="22 2 15 22 11 13 2 9 22 2" />
                 </svg>
               </button>
-            </div>
+            </form>
           </motion.div>
         )}
       </AnimatePresence>
