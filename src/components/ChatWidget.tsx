@@ -72,7 +72,7 @@ export default function ChatWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.95 }}
             transition={{ duration: 0.22, ease: "easeOut" }}
-            className="w-[320px] bg-white rounded-2xl shadow-2xl border border-[#E2DED8] overflow-hidden"
+            className="w-[380px] bg-white rounded-2xl shadow-2xl border border-[#E2DED8] overflow-hidden"
             role="dialog"
             aria-label="Chat de asistencia"
           >
@@ -97,7 +97,7 @@ export default function ChatWidget() {
             </div>
 
             {/* Messages */}
-            <div className="h-60 overflow-y-auto px-4 py-4 space-y-3 bg-[#FAFAF8]">
+            <div className="h-80 overflow-y-auto px-4 py-4 space-y-3 bg-[#FAFAF8]">
               {messages.map((msg: Message, i: number) => (
                 <div
                   key={i}
