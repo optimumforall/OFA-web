@@ -2,7 +2,7 @@
 
 import { createContext, useContext, ReactNode } from "react";
 
-const DEMO_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfwO8WQjvt2dhRKBGbPoZx21w4kYqGXLLvWi7XK9tSYO23RLg/viewform?usp=header";
+const DEMO_FORM_URL = "https://calendar.app.google/xdFsHjkq9tKnhjDn9";
 
 interface ModalContextType {
   openModal: () => void;
