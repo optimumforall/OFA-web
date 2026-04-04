@@ -157,9 +157,9 @@ export const t = {
       }
     },
     chat: {
-      botGreeting: "Hola. ¿En qué puedo ayudarte? Pulsa una pregunta o escríbeme directamente.",
-      companyName: "Optimum for All",
-      status: "Respondemos en minutos",
+      botGreeting: "Hola, soy Elia. ¿En qué puedo ayudarte? Pulsa una pregunta o escríbeme directamente.",
+      companyName: "Elia · Optimum for All",
+      status: "Demo en vivo · IA en tiempo real",
       placeholder: "Escribe tu pregunta...",
       fallback: "No tengo esa respuesta aquí, pero te la damos enseguida. Escríbenos por WhatsApp o reserva una demo gratuita.",
       whatsappBtn: "Hablar por WhatsApp con una persona real",
@@ -331,9 +331,9 @@ export const t = {
       }
     },
     chat: {
-      botGreeting: "Hola. En què puc ajudar-te? Prem una pregunta o escriume directament.",
-      companyName: "Optimum for All",
-      status: "Responem en minuts",
+      botGreeting: "Hola, soc l'Elia. En què puc ajudar-te? Prem una pregunta o escriu-me directament.",
+      companyName: "Elia · Optimum for All",
+      status: "Demo en viu · IA en temps real",
       placeholder: "Escriu la teva pregunta...",
       fallback: "No tinc aquesta resposta aquí, però te la donem de seguida. Escriu-nos per WhatsApp o reserva una demo gratuïta.",
       whatsappBtn: "Parlar per WhatsApp amb una persona real",

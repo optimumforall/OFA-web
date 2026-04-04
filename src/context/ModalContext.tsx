@@ -1,7 +1,8 @@
 "use client";
 
-import { createContext, useContext, useState, ReactNode } from "react";
-import { FormModal } from "@/components/FormModal";
+import { createContext, useContext, ReactNode } from "react";
+
+const DEMO_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfwO8WQjvt2dhRKBGbPoZx21w4kYqGXLLvWi7XK9tSYO23RLg/viewform?usp=header";
 
 interface ModalContextType {
   openModal: () => void;
@@ -11,15 +12,12 @@ interface ModalContextType {
 const ModalContext = createContext<ModalContextType | undefined>(undefined);
 
 export function ModalProvider({ children }: { children: ReactNode }) {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const openModal = () => setIsOpen(true);
-  const closeModal = () => setIsOpen(false);
+  const openModal = () => window.open(DEMO_FORM_URL, "_blank", "noopener,noreferrer");
+  const closeModal = () => {};
 
   return (
     <ModalContext.Provider value={{ openModal, closeModal }}>
       {children}
-      <FormModal isOpen={isOpen} onClose={closeModal} />
     </ModalContext.Provider>
   );
 }
