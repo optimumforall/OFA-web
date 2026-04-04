@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import PorQueOFA from "@/components/PorQueOFA";
 import Calculadora from "@/components/Calculadora";
 import ComoFunciona from "@/components/ComoFunciona";
+import EliaDemo from "@/components/EliaDemo";
 import FAQ from "@/components/FAQ";
 import CTAFinal from "@/components/CTAFinal";
 import Script from "next/script";
@@ -25,6 +26,7 @@ export default function Home() {
         <PorQueOFA />
         <Calculadora />
         <ComoFunciona />
+        <EliaDemo />
         <FAQ />
         <CTAFinal />
       </main>

@@ -26,11 +26,17 @@ export default function ChatWidget() {
     ]
   });
 
-  const [showQuickReplies, setShowQuickReplies] = useState(true);
+  const [showQuickReplies, setShowQuickReplies] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('elia_chat_started') !== 'true';
+    }
+    return true;
+  });
 
   useEffect(() => {
     if (messages.length > 1) {
       setShowQuickReplies(false);
+      localStorage.setItem('elia_chat_started', 'true');
     }
   }, [messages]);
 
