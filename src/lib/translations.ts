@@ -157,7 +157,7 @@ export const t = {
       }
     },
     chat: {
-      botGreeting: "Hola, soy Elia. ¿En qué puedo ayudarte? Pulsa una pregunta o escríbeme directamente.",
+      botGreeting: "Hola, soy Elia. ¿En qué puedo ayudarte? Escríbeme directamente.",
       companyName: "Elia · Optimum for All",
       status: "Demo en vivo · IA en tiempo real",
       placeholder: "Escribe tu pregunta...",
@@ -331,7 +331,7 @@ export const t = {
       }
     },
     chat: {
-      botGreeting: "Hola, soc l'Elia. En què puc ajudar-te? Prem una pregunta o escriu-me directament.",
+      botGreeting: "Hola, soc l'Elia. En què puc ajudar-te? Escriu-me directament.",
       companyName: "Elia · Optimum for All",
       status: "Demo en viu · IA en temps real",
       placeholder: "Escriu la teva pregunta...",
