@@ -15,7 +15,7 @@ export default function ComoFunciona() {
   const tr = t[lang].como;
 
   return (
-    <section id="como-funciona" className="py-24 lg:py-32 bg-[#F2F0EC]">
+    <section id="como-funciona" className="scroll-mt-28 py-24 lg:py-32 bg-[#F2F0EC]">
       <div className="max-w-6xl mx-auto px-6">
         <div className="max-w-xl mb-16">
           <p className="text-sm font-semibold text-[#D4793B] uppercase tracking-widest mb-3">{tr.label}</p>

@@ -12,7 +12,7 @@ export default function FAQ() {
   const tr = t[lang].faq;
 
   return (
-    <section id="faq" className="py-24 lg:py-32 bg-[#FAFAF8]">
+    <section id="faq" className="scroll-mt-28 py-24 lg:py-32 bg-[#FAFAF8]">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}

@@ -24,7 +24,7 @@ export default function Hero() {
   const { openModal } = useModal();
 
   return (
-    <section className="relative min-h-screen flex items-center pt-16 overflow-hidden bg-[#FAFAF8]">
+    <section className="relative min-h-screen flex items-center pt-16 md:pt-28 overflow-hidden bg-[#FAFAF8]">
       {/* Background Image with Frosted Glass Effect */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <Image
@@ -133,13 +133,13 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="absolute -bottom-4 -left-12 md:-bottom-2 md:-left-14 bg-white rounded-xl border border-[#E2DED8] shadow-md px-4 py-3 z-20">
+            <div className="pointer-events-none absolute -bottom-4 -left-12 md:-bottom-2 md:-left-14 bg-white rounded-xl border border-[#E2DED8] shadow-md px-4 py-3 z-20">
               <p className="text-xs text-[#6B6560] font-medium">{tr.stat1label}</p>
               <p className="text-2xl font-bold font-heading text-[#1D3461]">3–5</p>
               <p className="text-xs text-[#6B6560]">{tr.stat1sub}</p>
             </div>
 
-            <div className="absolute -top-6 -right-6 md:-top-8 md:-right-8 bg-[#D4793B] rounded-xl shadow-md px-4 py-3 z-20">
+            <div className="pointer-events-none absolute -top-6 -right-6 md:-top-8 md:-right-8 bg-[#D4793B] rounded-xl shadow-md px-4 py-3 z-20">
               <p className="text-xs text-white/80 font-medium">{tr.stat2label}</p>
               <p className="text-2xl font-bold font-heading text-white">4–6h</p>
               <p className="text-xs text-white/80">{tr.stat2sub}</p>
