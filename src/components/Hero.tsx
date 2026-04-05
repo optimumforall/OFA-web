@@ -51,13 +51,13 @@ export default function Hero() {
             </motion.h1>
 
             <motion.p initial="hidden" animate="visible" custom={0.2} variants={fadeUp}
-              className="text-lg text-[#6B6560] leading-relaxed mb-4 max-w-[480px]">
+              className="text-lg text-[#6B6560] leading-relaxed mb-5 max-w-[480px]">
               {tr.p1}
             </motion.p>
 
-            <motion.p initial="hidden" animate="visible" custom={0.25} variants={fadeUp}
-              className="text-base text-[#6B6560] leading-relaxed mb-8 max-w-[480px]">
-              {tr.p2}
+            <motion.p initial="hidden" animate="visible" custom={0.28} variants={fadeUp}
+              className="text-sm text-[#6B6560]/70 mb-8">
+              {tr.sectors}
             </motion.p>
 
             <motion.div initial="hidden" animate="visible" custom={0.35} variants={fadeUp}
