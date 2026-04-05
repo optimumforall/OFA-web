@@ -24,9 +24,9 @@ export default function Home() {
       <main id="main-content">
         <Hero />
         <PorQueOFA />
+        <EliaDemo />
         <Calculadora />
         <ComoFunciona />
-        <EliaDemo />
         <FAQ />
         <CTAFinal />
       </main>

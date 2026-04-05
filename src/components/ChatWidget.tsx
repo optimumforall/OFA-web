@@ -16,6 +16,13 @@ export default function ChatWidget() {
   const [open, setOpen] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
 
+  // Allow external components to open the widget via custom event
+  useEffect(() => {
+    const handler = () => setOpen(true);
+    window.addEventListener("elia:open", handler);
+    return () => window.removeEventListener("elia:open", handler);
+  }, []);
+
   const { messages, input, handleInputChange, handleSubmit, append } = useChat({
     initialMessages: [
       {
