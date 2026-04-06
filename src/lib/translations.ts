@@ -2,10 +2,10 @@ export const t = {
   es: {
     nav: {
       links: [
-        { label: "Por qué OFA", href: "#por-que-ofa" },
-        { label: "Calculadora", href: "#calculadora" },
-        { label: "Cómo funciona", href: "#como-funciona" },
-        { label: "Demo", href: "#demo" },
+        { label: "Por qué OFA", href: "/#por-que-ofa" },
+        { label: "Calculadora", href: "/#calculadora" },
+        { label: "Cómo funciona", href: "/#como-funciona" },
+        { label: "Demo", href: "/#demo" },
         { label: "FAQ", href: "/#faq" },
         { label: "Belleza", href: "/sectores/belleza" },
         { label: "Oficios", href: "/sectores/oficios" },
@@ -178,10 +178,10 @@ export const t = {
   ca: {
     nav: {
       links: [
-        { label: "Per què OFA", href: "#por-que-ofa" },
-        { label: "Calculadora", href: "#calculadora" },
-        { label: "Com funciona", href: "#como-funciona" },
-        { label: "Demo", href: "#demo" },
+        { label: "Per què OFA", href: "/#por-que-ofa" },
+        { label: "Calculadora", href: "/#calculadora" },
+        { label: "Com funciona", href: "/#como-funciona" },
+        { label: "Demo", href: "/#demo" },
         { label: "FAQ", href: "/#faq" },
         { label: "Bellesa", href: "/sectores/belleza" },
         { label: "Oficis", href: "/sectores/oficios" },
