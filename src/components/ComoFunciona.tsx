@@ -32,21 +32,15 @@ export default function ComoFunciona() {
               return (
                 <motion.div key={numbers[i]} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.55, delay: i * 0.12, ease: "easeOut" }}
-                  className="relative group"
-                >
-                  {/* Giant Background Number */}
-                  <span className="absolute -left-6 -top-10 text-8xl font-bold text-[#1D3461]/5 dark:text-white/5 select-none pointer-events-none transition-transform duration-500 group-hover:-translate-y-2">
-                    {numbers[i]}
-                  </span>
-
+                  transition={{ duration: 0.55, delay: i * 0.12, ease: "easeOut" }}>
                   <div className="flex items-center gap-4 mb-5">
-                    <div className="w-12 h-12 bg-[#1D3461] dark:bg-[#3B82F6] rounded-2xl flex items-center justify-center flex-shrink-0 shadow-md">
+                    <div className="w-12 h-12 bg-[#1D3461] rounded-2xl flex items-center justify-center flex-shrink-0 shadow-md">
                       <Icon size={22} className="text-white" />
                     </div>
+                    <span className="font-heading font-bold text-5xl text-[#1D3461]/10 leading-none select-none">{numbers[i]}</span>
                   </div>
-                  <h3 className="font-heading font-bold text-xl text-[#1D3461] dark:text-white mb-3 leading-snug">{step.title}</h3>
-                  <p className="text-[#6B6560] dark:text-[#94A3B8] leading-relaxed mb-4 text-base">{step.body}</p>
+                  <h3 className="font-heading font-bold text-xl text-[#1D3461] mb-3 leading-snug">{step.title}</h3>
+                  <p className="text-[#6B6560] leading-relaxed mb-4 text-base">{step.body}</p>
                   <span className="inline-block text-xs font-semibold text-[#D4793B] bg-[#D4793B]/10 px-3 py-1 rounded-full">{step.detail}</span>
                 </motion.div>
               );
