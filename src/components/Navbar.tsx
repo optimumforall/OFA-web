@@ -31,8 +31,8 @@ export default function Navbar() {
       }`}
     >
       {/* PISO 1: Controles y Branding */}
-      <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4" aria-label="Navegación principal">
-        <a href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity shrink-0" aria-label="Optimum for All — Inicio">
+      <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4 relative" aria-label="Navegación principal">
+        <a href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity shrink-0 z-10" aria-label="Optimum for All — Inicio">
           <Image
             src="/Logo.png"
             alt=""
@@ -46,7 +46,18 @@ export default function Navbar() {
           </span>
         </a>
 
-        <div className="flex items-center gap-2 md:gap-3 shrink-0">
+        {/* Compact Navigation Links (Only visible when scrolled) */}
+        <div className={`hidden lg:flex items-center justify-center gap-4 bg-white/50 backdrop-blur-sm px-4 py-1.5 rounded-full border border-[#E2DED8] transition-all duration-500 absolute left-1/2 -translate-x-1/2 ${
+          scrolled ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8 pointer-events-none"
+        }`}>
+          {tr.links.map((link) => (
+            <a key={link.href} href={link.href} className="text-[11px] font-bold text-[#6B6560] hover:text-[#1D3461] transition-colors duration-200 uppercase tracking-[0.05em] shrink-0">
+              {link.label}
+            </a>
+          ))}
+        </div>
+
+        <div className="flex items-center gap-2 md:gap-3 shrink-0 z-10">
           <button onClick={toggleLargeText} aria-label="Agrandar texto" className="flex items-center justify-center w-8 h-8 rounded-md bg-[#F2F0EC] hover:bg-[#E2DED8] text-[#1D3461] font-bold transition-colors">
             aA
           </button>
