@@ -24,7 +24,7 @@ export default function Hero() {
   const { openModal } = useModal();
 
   return (
-    <section className="relative min-h-screen flex items-center pt-16 md:pt-28 overflow-hidden bg-[#FAFAF8]">
+    <section className="relative min-h-screen flex items-center pt-20 md:pt-32 overflow-hidden bg-[#FAFAF8]">
       {/* Background Image with Frosted Glass Effect */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <Image
@@ -100,7 +100,7 @@ export default function Hero() {
                   <div className="w-8 h-8 bg-[#1D3461] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                     <PhoneCall size={14} className="text-white" />
                   </div>
-                  <div className="bg-[#F2F0EC] rounded-xl rounded-tl-none px-4 py-2.5 max-w-[260px]">
+                  <div className="bg-[#F2F0EC] rounded-xl rounded-tl-none px-4 py-2.5 max-w-[280px] md:max-w-[320px]">
                     <p className="text-sm text-[#1D3461] leading-snug">"{tr.callMsg1}"</p>
                   </div>
                 </div>
@@ -109,7 +109,7 @@ export default function Hero() {
                   <div className="w-8 h-8 bg-[#D4793B] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                     <MessageSquare size={14} className="text-white" />
                   </div>
-                  <div className="bg-[#1D3461] rounded-xl rounded-tr-none px-4 py-2.5 max-w-[260px]">
+                  <div className="bg-[#1D3461] rounded-xl rounded-tr-none px-4 py-2.5 max-w-[280px] md:max-w-[320px]">
                     <p className="text-sm text-white leading-snug">"{tr.callReply}"</p>
                   </div>
                 </div>
