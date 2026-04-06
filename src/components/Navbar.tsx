@@ -90,7 +90,9 @@ export default function Navbar() {
       </nav>
 
       {/* PISO 2: Nichos y Enlaces - SOLO ESCRITORIO */}
-      <div className="hidden md:block border-t border-[#E2DED8]/60 bg-[#FAFAF8]/95">
+      <div className={`hidden md:block border-t border-[#E2DED8]/60 bg-[#FAFAF8]/95 overflow-hidden transition-all duration-300 ${
+        scrolled ? "h-0 opacity-0 pointer-events-none" : "h-12 opacity-100"
+      }`}>
         <nav className="max-w-6xl mx-auto px-6 h-12 flex items-center justify-center gap-8" aria-label="Navegación secundaria">
           {tr.links.map((link) => (
             <a key={link.href} href={link.href} className="text-[13px] font-semibold text-[#6B6560] hover:text-[#1D3461] transition-colors duration-200 uppercase tracking-widest shrink-0">
