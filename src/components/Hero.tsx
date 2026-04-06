@@ -86,7 +86,7 @@ export default function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
             className="relative">
-            <div className="bg-white rounded-2xl border border-[#E2DED8] shadow-lg p-6 relative z-10">
+            <div className="bg-white rounded-2xl border border-[#E2DED8] shadow-lg p-6 pb-14 relative z-10">
               <div className="flex items-center justify-between mb-5">
                 <div className="flex items-center gap-2">
                   <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse" />
@@ -133,10 +133,10 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="pointer-events-none absolute -bottom-4 left-4 bg-white rounded-xl border border-[#E2DED8] shadow-md px-4 py-3 z-20">
-              <p className="text-xs text-[#6B6560] font-medium">{tr.stat1label}</p>
-              <p className="text-2xl font-bold font-heading text-[#1D3461]">3–5</p>
-              <p className="text-xs text-[#6B6560]">{tr.stat1sub}</p>
+            <div className="pointer-events-none absolute -bottom-4 left-4 bg-[#D4793B] rounded-xl shadow-md px-4 py-3 z-20">
+              <p className="text-xs text-white/80 font-medium">{tr.stat1label}</p>
+              <p className="text-2xl font-bold font-heading text-white">3–5</p>
+              <p className="text-xs text-white/80">{tr.stat1sub}</p>
             </div>
 
             <div className="pointer-events-none absolute -top-6 -right-4 md:-top-8 md:-right-6 bg-[#D4793B] rounded-xl shadow-md px-4 py-3 z-20">
