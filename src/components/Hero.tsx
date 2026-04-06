@@ -24,7 +24,7 @@ export default function Hero() {
   const { openModal } = useModal();
 
   return (
-    <section className="relative min-h-screen flex items-center pt-20 md:pt-32 overflow-hidden bg-[#FAFAF8]">
+    <section className="relative min-h-screen flex items-center pt-20 md:pt-32 overflow-hidden bg-[#FAFAF8] dark:bg-[#0B1120] bg-grid-pattern text-slate-500/5 dark:text-white/5">
       {/* Background Image with Frosted Glass Effect */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <Image
@@ -80,70 +80,113 @@ export default function Hero() {
             </motion.p>
           </div>
 
-          {/* Right - visual */}
+          {/* Right - Flow Visualization Inspiration: ttiflows.es */}
           <motion.div
-            initial={{ opacity: 0, x: 32 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
-            className="relative">
-            <div className="bg-white rounded-2xl border border-[#E2DED8] shadow-lg p-6 relative z-10">
-              <div className="flex items-center justify-between mb-5">
-                <div className="flex items-center gap-2">
-                  <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse" />
-                  <span className="text-sm font-semibold text-[#1D3461]">{tr.statusLabel}</span>
-                </div>
-                <span className="text-xs text-[#6B6560] bg-[#F2F0EC] px-2.5 py-1 rounded-full">24/7</span>
-              </div>
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="relative h-[450px] md:h-[550px] flex items-center justify-center">
+            
+            {/* Connection Lines (SVG) */}
+            <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" preserveAspectRatio="none">
+              <motion.path
+                d="M 150 150 L 300 250 L 150 350"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeDasharray="8 8"
+                className="text-[#D4793B]/20 dark:text-[#D4793B]/40"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 1.5, delay: 0.8 }}
+              />
+            </svg>
 
-              <div className="space-y-3 mb-5">
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 bg-[#1D3461] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <PhoneCall size={14} className="text-white" />
+            {/* Step 1: Llamada */}
+            <motion.div 
+              initial={{ opacity: 0, x: -40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="absolute top-[10%] left-[5%] md:left-[10%] z-10"
+            >
+              <div className="bg-white dark:bg-[#1E293B] border border-[#E2DED8] dark:border-white/10 rounded-2xl shadow-xl p-5 w-56 md:w-64 transform hover:-translate-y-1 transition-transform cursor-default">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 bg-[#1D3461] rounded-xl flex items-center justify-center">
+                    <PhoneCall size={20} className="text-white" />
                   </div>
-                  <div className="bg-[#F2F0EC] rounded-xl rounded-tl-none px-4 py-2.5 max-w-[280px] md:max-w-[320px]">
-                    <p className="text-sm text-[#1D3461] leading-snug">"{tr.callMsg1}"</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3 flex-row-reverse">
-                  <div className="w-8 h-8 bg-[#D4793B] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <MessageSquare size={14} className="text-white" />
-                  </div>
-                  <div className="bg-[#1D3461] rounded-xl rounded-tr-none px-4 py-2.5 max-w-[280px] md:max-w-[320px]">
-                    <p className="text-sm text-white leading-snug">"{tr.callReply}"</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 bg-[#1D3461] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <PhoneCall size={14} className="text-white" />
-                  </div>
-                  <div className="bg-[#F2F0EC] rounded-xl rounded-tl-none px-4 py-2.5">
-                    <p className="text-sm text-[#1D3461]">"{tr.callMsg2}"</p>
+                  <div>
+                    <p className="text-[10px] font-bold text-[#D4793B] uppercase tracking-tighter">Entrante</p>
+                    <p className="text-sm font-bold text-[#1D3461] dark:text-white">Llamada de Cliente</p>
                   </div>
                 </div>
-              </div>
-
-              <div className="bg-green-50 border border-green-100 rounded-xl p-3 flex items-center gap-3">
-                <Calendar size={16} className="text-green-600 flex-shrink-0" />
-                <div>
-                  <p className="text-xs font-semibold text-green-700">{tr.confirmTitle}</p>
-                  <p className="text-xs text-green-600">{tr.confirmSub}</p>
+                <div className="h-1.5 w-full bg-[#F2F0EC] dark:bg-white/5 rounded-full overflow-hidden">
+                  <motion.div 
+                    initial={{ x: "-100%" }}
+                    animate={{ x: "0%" }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    className="h-full w-1/2 bg-[#D4793B]" 
+                  />
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="pointer-events-none absolute -bottom-10 -left-2 md:-bottom-16 md:-left-12 bg-[#D4793B] rounded-xl shadow-lg px-4 py-3 z-30 transform hover:scale-105 transition-transform duration-300">
-              <p className="text-xs text-white/80 font-medium">{tr.stat1label}</p>
-              <p className="text-2xl font-bold font-heading text-white">3–5</p>
-              <p className="text-xs text-white/80">{tr.stat1sub}</p>
-            </div>
+            {/* Step 2: IA Elia (Central) */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="relative z-20"
+            >
+              <div className="bg-[#1D3461] dark:bg-[#3B82F6] rounded-full p-1.5 shadow-2xl">
+                <motion.div 
+                  animate={{ scale: [1, 1.05, 1] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-white dark:bg-[#1E293B] flex items-center justify-center relative overflow-hidden"
+                >
+                  <Image src="/Logo.png" alt="Elia IA" width={80} height={80} className="relative z-10" />
+                  <div className="absolute inset-0 bg-[#D4793B]/5 animate-pulse" />
+                </motion.div>
+              </div>
+              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-[#D4793B] text-white text-[11px] font-bold px-4 py-1 rounded-full shadow-lg whitespace-nowrap">
+                IA ANALIZANDO...
+              </div>
+            </motion.div>
 
-            <div className="pointer-events-none absolute -top-10 -right-2 md:-top-16 md:-right-12 bg-[#D4793B] rounded-xl shadow-lg px-4 py-3 z-30 transform hover:scale-105 transition-transform duration-300">
-              <p className="text-xs text-white/80 font-medium">{tr.stat2label}</p>
-              <p className="text-2xl font-bold font-heading text-white">4–6h</p>
-              <p className="text-xs text-white/80">{tr.stat2sub}</p>
-            </div>
+            {/* Step 3: Cita */}
+            <motion.div 
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 1 }}
+              className="absolute bottom-[10%] right-[5%] md:right-[10%] z-10"
+            >
+              <div className="bg-white dark:bg-[#1E293B] border border-[#E2DED8] dark:border-white/10 rounded-2xl shadow-xl p-5 w-56 md:w-64 transform hover:-translate-y-1 transition-transform cursor-default">
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-green-500 rounded-xl flex items-center justify-center">
+                      <Calendar size={20} className="text-white" />
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-bold text-green-600 uppercase tracking-tighter">Confirmado</p>
+                      <p className="text-sm font-bold text-[#1D3461] dark:text-white">Cita en Google Cal</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-green-50 dark:bg-green-500/10 rounded-lg p-2 flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 bg-green-500 rounded-full" />
+                  <p className="text-[11px] text-green-700 dark:text-green-400 font-medium">Sincronización completa</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Floating Stats - Adapted */}
+            <motion.div 
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute top-[20%] right-0 md:-right-8 bg-[#D4793B] rounded-xl shadow-lg px-4 py-2.5 z-30 transform -rotate-3"
+            >
+              <p className="text-[10px] text-white/80 font-bold uppercase">Ahorro</p>
+              <p className="text-xl font-bold font-heading text-white">4–6h</p>
+            </motion.div>
           </motion.div>
         </div>
       </div>

@@ -48,13 +48,17 @@ export default function PorQueOFA() {
                 viewport={{ once: true, margin: "-60px" }}
                 custom={i}
                 variants={fadeUp}
-                className={`rounded-2xl p-7 ${accent ? "bg-[#1D3461] text-white" : "bg-white border border-[#E2DED8]"}`}
+                className={`rounded-2xl p-7 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl ${
+                  accent 
+                    ? "bg-[#1D3461] dark:bg-[#3B82F6] text-white shadow-lg shadow-blue-900/20" 
+                    : "bg-white dark:bg-[#1E293B] border border-[#E2DED8] dark:border-white/10 text-[#1D3461] dark:text-white"
+                }`}
               >
-                <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 ${accent ? "bg-white/10" : "bg-[#1D3461]/8"}`}>
-                  <Icon size={20} className={accent ? "text-[#D4793B]" : "text-[#1D3461]"} />
+                <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 ${accent ? "bg-white/10" : "bg-[#1D3461]/8 dark:bg-white/5"}`}>
+                  <Icon size={20} className={accent ? "text-[#D4793B]" : "text-[#1D3461] dark:text-[#3B82F6]"} />
                 </div>
-                <h3 className={`font-heading font-bold text-xl mb-3 ${accent ? "text-white" : "text-[#1D3461]"}`}>{card.title}</h3>
-                <p className={`text-base leading-relaxed ${accent ? "text-white/75" : "text-[#6B6560]"}`}>{card.body}</p>
+                <h3 className={`font-heading font-bold text-xl mb-3 ${accent ? "text-white" : "text-[#1D3461] dark:text-white"}`}>{card.title}</h3>
+                <p className={`text-base leading-relaxed ${accent ? "text-white/75" : "text-[#6B6560] dark:text-[#94A3B8]"}`}>{card.body}</p>
               </motion.div>
             );
           })}

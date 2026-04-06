@@ -116,7 +116,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body
-        className={`${plusJakarta.variable} ${dmSans.variable} font-body antialiased bg-[#FAFAF8] text-[#141414]`}
+        className={`${plusJakarta.variable} ${dmSans.variable} font-body antialiased`}
       >
         <ClientProviders>
           {children}

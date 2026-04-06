@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Globe, Menu } from "lucide-react";
+import { Globe, Menu, Sun, Moon } from "lucide-react";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
+import { useTheme } from "@/context/ThemeContext";
 import { useModal } from "@/context/ModalContext";
 import { useAccessibility } from "@/context/AccessibilityContext";
 import { t } from "@/lib/translations";
@@ -12,6 +13,7 @@ import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const { lang, setLang } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
   const { openModal } = useModal();
   const { toggleLargeText } = useAccessibility();
   const tr = t[lang].nav;
@@ -47,19 +49,27 @@ export default function Navbar() {
         </a>
 
         <div className="flex items-center gap-2 md:gap-3 shrink-0">
-          <button onClick={toggleLargeText} aria-label="Agrandar texto" className="flex items-center justify-center w-8 h-8 rounded-md bg-[#F2F0EC] hover:bg-[#E2DED8] text-[#1D3461] font-bold transition-colors">
+          <button 
+            onClick={toggleTheme}
+            aria-label="Cambiar tema"
+            className="flex items-center justify-center w-8 h-8 rounded-md bg-[#F2F0EC] dark:bg-[#334155] hover:bg-[#E2DED8] dark:hover:bg-[#475569] text-[#1D3461] dark:text-[#F8FAFC] transition-all duration-300"
+          >
+            {theme === "light" ? <Moon size={16} /> : <Sun size={16} />}
+          </button>
+
+          <button onClick={toggleLargeText} aria-label="Agrandar texto" className="flex items-center justify-center w-8 h-8 rounded-md bg-[#F2F0EC] dark:bg-[#334155] hover:bg-[#E2DED8] dark:hover:bg-[#475569] text-[#1D3461] dark:text-[#F8FAFC] font-bold transition-colors">
             aA
           </button>
           
-          <button onClick={() => setLang(lang === 'es' ? 'ca' : 'es')} aria-label="Cambiar idioma" className="flex items-center gap-1.5 px-2.5 h-8 rounded-md bg-[#F2F0EC] hover:bg-[#E2DED8] text-[#1D3461] text-[11px] font-bold transition-colors uppercase tracking-wider">
+          <button onClick={() => setLang(lang === 'es' ? 'ca' : 'es')} aria-label="Cambiar idioma" className="flex items-center gap-1.5 px-2.5 h-8 rounded-md bg-[#F2F0EC] dark:bg-[#334155] hover:bg-[#E2DED8] dark:hover:bg-[#475569] text-[#1D3461] dark:text-[#F8FAFC] text-[11px] font-bold transition-colors uppercase tracking-wider">
             <Globe size={13} className="opacity-70" />
             <span className="hidden sm:inline">{lang === 'es' ? 'ES/CA' : 'CA/ES'}</span>
           </button>
 
-          <div className="w-px h-4 bg-[#E2DED8] mx-1 hidden sm:block"></div>
+          <div className="w-px h-4 bg-[#E2DED8] dark:bg-white/10 mx-1 hidden sm:block"></div>
 
           {/* CTA Solo Escritorio */}
-          <button onClick={openModal} className="hidden sm:inline-flex items-center justify-center bg-[#1D3461] hover:bg-[#1D3461]/90 text-white font-semibold text-sm px-5 h-9 rounded-lg transition-colors">
+          <button onClick={openModal} className="hidden sm:inline-flex items-center justify-center bg-[#1D3461] dark:bg-[#3B82F6] hover:bg-[#1D3461]/90 dark:hover:bg-[#3B82F6]/90 text-white font-semibold text-sm px-5 h-9 rounded-lg transition-colors">
             {tr.cta}
           </button>
 
