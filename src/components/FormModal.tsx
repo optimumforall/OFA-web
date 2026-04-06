@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState } from 'react';
 
@@ -38,7 +38,7 @@ export function FormModal({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
       <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6">
-        <h2 className="text-2xl font-bold mb-4 text-gray-900">Reserva tu demo</h2>
+        <h2 className="text-2xl font-bold mb-4 text-[#1D3461]">Agenda una cita</h2>
         
         {success ? (
           <div className="text-center py-8">
