@@ -47,7 +47,7 @@ export default function Navbar() {
         </a>
 
         {/* Compact Navigation Links (Only visible when scrolled) */}
-        <div className={`hidden lg:flex items-center justify-center gap-4 bg-white/50 backdrop-blur-sm px-4 py-1.5 rounded-full border border-[#E2DED8] transition-all duration-500 absolute left-1/2 -translate-x-1/2 ${
+        <div className={`hidden lg:flex items-center justify-center gap-10 bg-white/70 backdrop-blur-md px-10 py-2 rounded-full border border-[#E2DED8] shadow-md transition-all duration-500 absolute left-1/2 -translate-x-1/2 ${
           scrolled ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8 pointer-events-none"
         }`}>
           {tr.links.map((link) => (

@@ -12,7 +12,7 @@ export default function CTAFinal() {
   const tr = t[lang].cta;
 
   return (
-    <section id="comienza" className="py-24 lg:py-32 bg-[#1D3461] relative overflow-hidden">
+    <section id="comienza" className="scroll-mt-20 min-h-screen flex items-center bg-[#1D3461] relative overflow-hidden py-24 lg:py-0">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/[0.02] rounded-full translate-x-1/2 -translate-y-1/2 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[#D4793B]/10 rounded-full -translate-x-1/3 translate-y-1/3 pointer-events-none" />
 

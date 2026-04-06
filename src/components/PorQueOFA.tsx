@@ -22,7 +22,7 @@ export default function PorQueOFA() {
   const tr = t[lang].porQue;
 
   return (
-    <section id="por-que-ofa" className="scroll-mt-28 py-20 lg:py-0 lg:min-h-[calc(100vh-112px)] flex flex-col justify-center bg-[#F2F0EC]">
+    <section id="por-que-ofa" className="scroll-mt-20 min-h-screen flex items-center bg-[#F2F0EC]">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-8 mb-16">
           <div>

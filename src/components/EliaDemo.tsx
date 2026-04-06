@@ -15,7 +15,7 @@ export default function EliaDemo() {
   };
 
   return (
-    <section id="demo" className="scroll-mt-28 py-20 lg:py-0 lg:min-h-[calc(100vh-112px)] flex flex-col justify-center bg-[#1D3461] relative overflow-hidden">
+    <section id="demo" className="scroll-mt-20 min-h-screen flex items-center bg-[#1D3461] relative overflow-hidden py-20 lg:py-0">
       {/* Background texture */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/[0.02] rounded-full translate-x-1/3 -translate-y-1/3 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#D4793B]/8 rounded-full -translate-x-1/3 translate-y-1/3 pointer-events-none" />
