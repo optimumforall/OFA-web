@@ -68,51 +68,108 @@ export default function RootLayout({
         </Script>
         <Script id="schema-org" type="application/ld+json" strategy="afterInteractive">
           {`
-            {
-              "@context": "https://schema.org",
-              "@type": "ProfessionalService",
-              "name": "Optimum for All",
-              "url": "https://optimumforall.es",
-              "logo": "https://optimumforall.es/logo.png",
-              "image": "https://optimumforall.es/main_hero.png",
-              "description": "Servicio de asistentes de voz con Inteligencia Artificial para atención telefónica 24/7 y gestión de citas de pequeños negocios en Cataluña.",
-              "telephone": "+34-625-102-259",
-              "email": "optimum.for.all@gmail.com",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Barcelona",
-                "addressRegion": "Catalunya",
-                "addressCountry": "ES"
-              },
-              "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": 41.2239,
-                "longitude": 1.7251
-              },
-              "areaServed": [
-                {
-                  "@type": "GeoCircle",
-                  "geoMidpoint": {
-                    "@type": "GeoCoordinates",
-                    "latitude": 41.2239,
-                    "longitude": 1.7251
-                  },
-                  "geoRadius": "40000",
-                  "description": "Comarca del Garraf y Penedès"
-                },
-                "Vilanova i la Geltrú",
-                "Sitges",
-                "Cunit",
-                "Tarragona",
-                "Barcelona"
-              ],
-              "priceRange": "€€",
-              "sameAs": [
-                "https://www.instagram.com/optimum.for.all",
-                "https://www.linkedin.com/company/optimum-for-all"
-              ]
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Optimum for All",
+      "description": "Asistentes de voz con Inteligencia Artificial para atención telefónica 24/7 y gestión de citas de pequeños negocios en Cataluña.",
+      "url": "https://optimumforall.es",
+      "telephone": "+34-625-102-259",
+      "email": "optimum.for.all@gmail.com",
+      "logo": "https://optimumforall.es/Logo.png",
+      "image": "https://optimumforall.es/main_hero.png",
+      "priceRange": "€€",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Barcelona",
+        "addressLocality": "Barcelona",
+        "addressRegion": "Catalunya",
+        "postalCode": "08000",
+        "addressCountry": "ES"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 41.3874,
+        "longitude": -2.1686
+      },
+      "areaServed": [
+        "Barcelona",
+        "Cataluña",
+        "España"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "1"
+      },
+      "sameAs": [
+        "https://www.instagram.com/optimum.for.all",
+        "https://www.linkedin.com/company/optimum-for-all"
+      ],
+      "serviceArea": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 41.3874,
+          "longitude": -2.1686
+        },
+        "geoRadius": "50000"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios OFA",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Asistente de voz IA",
+            "description": "Responde llamadas 24/7 y agenda citas automáticamente",
+            "availability": "https://schema.org/InStock",
+            "price": "79",
+            "priceCurrency": "EUR"
+          },
+          {
+            "@type": "Offer",
+            "name": "Configuración en 48h",
+            "description": "Setup rápido sin tecnicismos",
+            "availability": "https://schema.org/InStock",
+            "price": "0",
+            "priceCurrency": "EUR"
+          }
+        ]
+      },
+      "faqPage": {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Cómo funciona Optimum for All?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nuestro asistente de voz IA contesta llamadas, agenda citas y gestiona consultas automáticamente 24/7, sin necesidad de técnica."
             }
-          `}
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuánto tiempo tarda la configuración?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "48 horas. Es simple: conectamos con tu negocio y el asistente está listo."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Para quién es Optimum for All?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Para autónomos y pequeños negocios: salones de belleza, peluquerías, oficios (fontaneros, electricistas), clínicas y consultorios."
+            }
+          }
+        ]
+      }
+    }
+  `}
         </Script>
       </head>
       <body
