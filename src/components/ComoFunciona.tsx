@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { motion } from "framer-motion";
 import { ClipboardList, Mic, CalendarCheck } from "lucide-react";

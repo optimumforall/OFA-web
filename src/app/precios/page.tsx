@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Mail } from "lucide-react";

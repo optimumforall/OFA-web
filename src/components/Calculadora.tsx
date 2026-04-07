@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
+import { useModal } from "@/context/ModalContext";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { TrendingUp, Clock, Phone } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
-import { useModal } from "@/context/ModalContext";
 import { t } from "@/lib/translations";
 
 export default function Calculadora() {
