@@ -81,22 +81,37 @@ export default function RootLayout({
       "priceRange": "€€",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Barcelona",
-        "addressLocality": "Barcelona",
-        "addressRegion": "Catalunya",
-        "postalCode": "08000",
+        "streetAddress": "Cunit",
+        "addressLocality": "Cunit",
+        "addressRegion": "Tarragona",
+        "postalCode": "43881",
         "addressCountry": "ES"
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 41.3874,
-        "longitude": -2.1686
+        "latitude": 41.2404,
+        "longitude": 1.7471
       },
       "areaServed": [
+        "Cunit",
+        "Vilanova i la Geltrú",
+        "Sitges",
+        "Garraf",
+        "Penedès",
         "Barcelona",
+        "Tarragona",
         "Cataluña",
         "España"
       ],
+      "serviceArea": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 41.2404,
+          "longitude": 1.7471
+        },
+        "geoRadius": "50000"
+      },
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "5",
@@ -107,67 +122,7 @@ export default function RootLayout({
       "sameAs": [
         "https://www.instagram.com/optimum.for.all",
         "https://www.linkedin.com/company/optimum-for-all"
-      ],
-      "serviceArea": {
-        "@type": "GeoCircle",
-        "geoMidpoint": {
-          "@type": "GeoCoordinates",
-          "latitude": 41.3874,
-          "longitude": -2.1686
-        },
-        "geoRadius": "50000"
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Servicios OFA",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "name": "Asistente de voz IA",
-            "description": "Responde llamadas 24/7 y agenda citas automáticamente",
-            "availability": "https://schema.org/InStock",
-            "price": "79",
-            "priceCurrency": "EUR"
-          },
-          {
-            "@type": "Offer",
-            "name": "Configuración en 48h",
-            "description": "Setup rápido sin tecnicismos",
-            "availability": "https://schema.org/InStock",
-            "price": "0",
-            "priceCurrency": "EUR"
-          }
-        ]
-      },
-      "faqPage": {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "¿Cómo funciona Optimum for All?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Nuestro asistente de voz IA contesta llamadas, agenda citas y gestiona consultas automáticamente 24/7, sin necesidad de técnica."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "¿Cuánto tiempo tarda la configuración?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "48 horas. Es simple: conectamos con tu negocio y el asistente está listo."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "¿Para quién es Optimum for All?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Para autónomos y pequeños negocios: salones de belleza, peluquerías, oficios (fontaneros, electricistas), clínicas y consultorios."
-            }
-          }
-        ]
-      }
+      ]
     }
   `}
         </Script>
